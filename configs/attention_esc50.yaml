@@ -1,0 +1,22 @@
+experiment: attention
+dataset: esc50            # 2,000 clips · 50 classes · 5 s · 5 folds. Small enough for MPS.
+sample_rate: 16000
+n_mels: 64
+seed: 0
+folds_train: [1, 2, 3, 4]
+fold_test: 5
+
+model:
+  d_model: 128
+  n_heads: 4
+  n_layers: 4
+  d_ff: 256
+  dropout: 0.1
+  pos_encoding: sinusoidal   # sinusoidal | learned
+
+train:
+  epochs: 30
+  batch_size: 32
+  lr: 3.0e-4
+  weight_decay: 0.01
+  warmup_steps: 200
